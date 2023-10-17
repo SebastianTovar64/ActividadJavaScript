@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    text-align: center;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+    text-shadow: 3px 2px white
+}
+
+h1 {
+    color: #333;
+    text-align:center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+    color: whitesmoke;
+    font-weight: 1000000;
+    margin-left: 20px;
+    font-size: 45px;
+    text-shadow: 3px 2px black;
+    box-shadow: 5px 5px 5px purple;
+}
+
+h2 {
+    color: #666;
+    text-align:center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+    color: rgb(19, 4, 150);
+    font-weight: 1000000;
+    margin-left: 20px;
+    font-size: 45px;
+    text-shadow: 3px 2px black;
+}
+body{
+    background-image: url('https://camo.githubusercontent.com/bdd38b0c65d47c7cba62b60617adffedb3a48d1ac6e77501b990fffb1e52815c/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f333230302f312a4f463078454d6b5742762d36397a766d4e73365244512e676966');
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+margin: 0;
+padding: 0;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Permanent Marker', cursive;
+
+}
+
+form {
+    background-color: #7272729b;
+    border: 1px solid #010000e7;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.988);
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+}
+
+select, input, button {
+    margin: 10px 0;
+    width: 100%;
+    padding: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+}
+
+button {
+    background-color: #fa0707;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    
+}
+
+button:hover {
+    background-color: #f58989;
+}
+
+
+#order-summary {
+    text-align: center;
+    margin: 0 auto;
+    width: 50%; 
+    padding: 10px;
+    background-color: #bfbfbf9b;
+    border: 1px solid #010000e7;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.988);
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+}
+
+#total-price {
+    color:black;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+    background-color: #d9d8d89b;
+    border: 1px solid #010000e7;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.988);
+}
+
+p{
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    color:black;
+}
+
