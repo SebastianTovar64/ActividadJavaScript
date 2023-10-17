@@ -63,19 +63,30 @@ form {
     font-family: 'Permanent Marker', cursive;
 }
 
-select, input, button {
+select{
     margin: 10px 0;
     width: 100%;
     padding: 10px;
     font-family: 'Josefin Sans', sans-serif;
     font-family: 'Permanent Marker', cursive;
 }
-
+input{
+    margin: 10px 0;
+    width: 100%;
+    padding: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Permanent Marker', cursive;  
+}
 button {
     background-color: #fa0707;
     color: #fff;
     border: none;
     cursor: pointer;
+    margin: 10px 0;
+    width: 100%;
+    padding: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Permanent Marker', cursive;
     
 }
 
