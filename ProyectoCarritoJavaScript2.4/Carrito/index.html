@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Carrito</title>
-    <link rel="stylesheet" href="/ProyectoCarritoJavaScript2.4/Carrito/style/estilosCarritos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet"/>
-</head>
-<body>
-    <h1> Trabajo Con JavaScript</h1>
-    <h2>Carrito</h2>
-    <h2></h2>
-
-    <div class="container">
-        <div class="row">
-            <p></p>
-            <h3><span id="valor">0</span></h3>
-            <button type="button" id="incrementar" class="btn btn-outline-success col" onclick="incremento()">+ <i></i></button>
-            <br/>
-            <button type="button" id="restar" class="btn btn-outline-danger col" onclick="decremento()">- </i></button>
+<html>
+    <head>
+        <link rel="stylesheet" href="/ProyectoCarritoJavaScript2.4/Carrito/style/estilosCarritos.css">
+        <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="header">
+            <p class="book">BOOKSTORE</p>
+            <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
         </div>
-        <button type="button" onclick="resetear()" id="resetear" class="btn btn-outline-danger col"> <i class="fas fa-broom"></i></button>
-    </div> 
-    <script src="js/carrito.js"></script>
-    
-</body>
+        <div class="container">
+            <div id="root"></div>
+            <div class="sidebar">
+                <div class="head"><p>Carrito</p></div>
+                <div id="cartItem">Su carro esta vacio</div>
+                <div class="foot">
+                    <h3>Total</h3>
+                    <h2 id="total">$ 0</h2>
+                </div>
+            </div>
+        </div>
+        <script src="/ProyectoCarritoJavaScript2.4/Carrito/js/carrito.js"></script>
+    </body>
 </html>

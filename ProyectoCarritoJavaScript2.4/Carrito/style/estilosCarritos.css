@@ -1,80 +1,159 @@
-body {
-    font-family: Arial, sans-serif;
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-image: url('https://p4.wallpaperbetter.com/wallpaper/521/582/408/the-last-of-us-video-games-window-wallpaper-preview.jpg');
-    margin: 0;
-    padding: 0;
-    font-family: 'Josefin Sans', sans-serif;
-    font-family: 'Permanent Marker', cursive;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    font-size: 18px;
 
 }
-
-h1 {
-    color: #333;
-    text-align:center;
-    font-family: 'Josefin Sans', sans-serif;
-    font-family: 'Permanent Marker', cursive;
-    color: whitesmoke;
-    font-weight: 1000000;
-    margin-left: 20px;
-    font-size: 45px;
-    text-shadow: 3px 2px black;
-
+.header{
+    height: 80px;
+    width: 70%;
+    background-color: #69a5a4;
+    border-radius: 3px;
+    margin: 30px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
 }
-
-h2 {
-    color: #666;
-    text-align:center;
-    font-family: 'Josefin Sans', sans-serif;
-    font-family: 'Permanent Marker', cursive;
-    color: rgb(4, 150, 58);
-    font-weight: 1000000;
-    margin-left: 20px;
-    font-size: 45px;
-    text-shadow: 3px 2px black;
+.header .book{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
 }
-
-
-
-button {
-    background-color: #fa0707;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    margin: 10px 0;
-    width: 100%;
-    padding: 10px;
-    font-family: 'Josefin Sans', sans-serif;
-    font-family: 'Permanent Marker', cursive;
-    
+.cart{
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 3px;
+    width: 80px;
 }
-
-button:hover {
-    background-color: #f58989;
+.fa-solid{
+    color: #69a5a4;
 }
-
-p{
-    font-family: 'Josefin Sans', sans-serif;
-    font-family: 'Permanent Marker', cursive;
-    background-color: #d9d8d89b;
+.cart p{
+    height: 22px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    background-color: #701a7e;
+    color: white;
+}
+.container{
+    display: flex;
+    width: 70%;
+    margin-bottom: 30px;
+}
+#root{
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+.sidebar{
+    width: 40%;
     border-radius: 5px;
-    margin: 20px auto;
-    width: 300px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.988);
+    background-color: #eee;
+    margin-left: 20px;
+    padding: 15px;
+    text-align: center;
 }
-
-
-
-
-
-    #valor button {
+.head{
+    background-color: #85c7d3;
+    border-radius: 3px;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.foot{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    padding: 10px 0px;
+    border-top: 1px solid #333;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #85c7d3;
+    border-radius: 5px;
+    padding: 15px;
+}
+.img-box{
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.images{
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: cover;
+    object-position: center;
+}
+.bottom{
     margin-top: 20px;
-    }
-
-
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 110px;
+}
+h2{
+    font-size: 20px;
+    color: red;
+}
+button{
+    width: 100%;
+    position: relative;
+    border: none;
+    border-radius: 5px;
+    background-color: #6f6bc3;
+    padding: 7px 25px;
+    cursor: pointer;
+    color: white;
+}
+button:hover{
+    background-color: #333;
+}
+.cart-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px solid #aaa;
+    border-radius: 3px;
+    margin: 10px 10px;
+}
+.row-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid #6f6bc3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rowimg{
+    max-width: 43px;
+    max-height: 43px;
+}

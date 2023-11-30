@@ -1,65 +1,142 @@
-let carrito = []; // Arreglo para almacenar los productos en el carrito
-
-window.addEventListener('keydown', (e) => {
-    if (e.key === "+") {
-        incremento(); // Llama a la funcion incremento() si se presiona la tecla "+"
-    } else if (e.key === "-") {
-        decremento(); // Llama a la funcion decremento() si se presiona la tecla "-"
+// Definicion de una lista de productos con detalles como id, imagen, título y precio.
+const products = [
+    {
+        id: 0,
+        image: 'img/reyes.webp',
+        title: 'Reyes Caidos',
+        price: 150000,
+    },
+    {
+        id: 1,
+        image: 'img/todas.jpeg',
+        title: 'Todas Las Hadas Del Reino',
+        price: 90000,
+    },
+    {
+        id: 2,
+        image: 'img/codigo.jpg',
+        title: 'Codigo De Ladrones',
+        price: 130000,
+    },
+    {
+        id: 3,
+        image: 'img/atlantis.jpg',
+        title: 'Atlantis Proyecto Tarsis',
+        price: 100000,
     }
-});
+];
 
-const valor = document.getElementById("valor"); // Obtiene el elemento con el id "valor" del documento HTML
+// Arreglo que almacenara los productos seleccionados por el usuario.
+let cart = [];
 
-function actualizarValor() {
-    let productosHTML = ""; // String para almacenar la presentacion de los productos
-
-    let total = 0; // Variable para almacenar el valor total de los productos en el carrito
-    carrito.forEach((producto) => {
-        total += producto.valor * producto.cantidad; // Calcula el valor total sumando el valor del producto multiplicado por la cantidad
-        productosHTML += `<p>${producto.nombre} x${producto.cantidad}: ${producto.valor * producto.cantidad} </p>`; // Agrega la presentacion de cada producto al string productosHTML
-    });
-
-    valor.innerHTML = `<div>${productosHTML}</div><p>Total: ${total}</p>`; // Muestra la cantidad y el total de cada producto en el documento HTML
+// Funcion que genera el HTML para mostrar un producto en la interfaz.
+function renderProduct(product) {
+    return `
+        <div class='box'>
+            <div class='img-box'>
+                <img class='images' src=${product.image} alt=${product.title}></img>
+            </div>
+            <div class='bottom'>
+                <p>${product.title}</p>
+                <h2>$ ${product.price}</h2>
+                <button onclick='addToCart(${product.id})'>Add to cart</button>
+            </div>
+        </div>`;
 }
 
-function incremento() {
-    const producto1 = { nombre: "El Coronel No Tiene Quien Le Escriba", valor: 200000, cantidad: 1 }; // Producto 1
-    const producto2 = { nombre: "100 Años De Soledad", valor: 600000, cantidad: 1 }; // Producto 2
+// Funcion que agrega un producto al carrito cuando el usuario hace clic en "Add to cart".
+function addToCart(productId) {
+    // Busca el producto en la lista de productos por su id.
+    const productToAdd = products.find(product => product.id === productId);
+    // Copia el producto y lo agrega al carrito.
+    cart.push({ ...productToAdd });
+    // Actualiza la visualización del carrito en la interfaz.
+    displayCart();
+}
 
-    const indexProducto1 = carrito.findIndex((p) => p.nombre === producto1.nombre); // Busca si el producto1 ya esta en el carrito
-    const indexProducto2 = carrito.findIndex((p) => p.nombre === producto2.nombre); // Busca si el producto2 ya esta en el carrito
+// Funcion que elimina un elemento del carrito cuando el usuario hace clic en el ícono de la papelera.
+function removeCartItem(index) {
+    // Elimina el elemento en la posición 'index' del carrito.
+    cart.splice(index, 1);
+    // Actualiza la visualización del carrito en la interfaz.
+    displayCart();
+}
 
-    if (indexProducto1 !== -1) { // Si el producto1 ya esta en el carrito
-        carrito[indexProducto1].cantidad++; // Incrementa la cantidad del producto1 en el carrito
+// Funcion que muestra el contenido del carrito en la interfaz.
+function displayCart() {
+    // Obtiene los elementos HTML donde se mostrará el carrito y el total.
+    const cartContainer = document.getElementById("cartItem");
+    const totalContainer = document.getElementById("total");
+
+    // Verifica si el carrito esta vacio.
+    if (cart.length === 0) {
+        // Muestra un mensaje indicando que el carrito esta vacio.
+        cartContainer.innerHTML = "Su carro está vacío";
+        // Establece el total en $0.
+        totalContainer.innerHTML = "$ 0";
     } else {
-        carrito.push(producto1); // Agrega el producto1 al carrito
+        let total = 0;
+
+        // Genera el HTML para cada elemento del carrito.
+        cartContainer.innerHTML = cart.map((item, index) => {
+            // Suma el precio del producto al total.
+            total += item.price;
+
+            return `
+                <div class='cart-item'>
+                    <div class='row-img'>
+                        <img class='rowimg' src=${item.image} alt=${item.title}>
+                    </div>
+                    <p style='font-size:12px;'>${item.title}</p>
+                    <h2 style='font-size: 15px;'>$ ${item.price}</h2>
+                    <i class='fa-solid fa-trash' onclick='removeCartItem(${index})'></i>
+                </div>`;
+        }).join('');
+
+        // Muestra el total acumulado en el carrito.
+        totalContainer.innerHTML = `$ ${total}`;
     }
 
-    if (indexProducto2 !== -1) { // Si el producto2 ya está en el carrito
-        carrito[indexProducto2].cantidad++; // Incrementa la cantidad del producto2 en el carrito
-    } else {
-        carrito.push(producto2); // Agrega el producto2 al carrito
-    }
-
-    actualizarValor(); // Actualiza y muestra la cantidad y el valor total de los productos en el carrito
+    // Actualiza el contador de elementos en el carrito.
+    document.getElementById("count").innerHTML = cart.length;
 }
 
-function decremento() {
-    if (carrito.length > 0) { // Si hay productos en el carrito
-        const ultimoProducto = carrito[carrito.length - 1]; // Obtiene el ultimo producto agregado al carrito
+// Obtiene los elementos HTML donde se mostrará el carrito y el total.
+const cartContainer = document.getElementById("cartItem");
+const totalContainer = document.getElementById("total");
 
-        if (ultimoProducto.cantidad > 1) { // Si la cantidad del ultimo producto es mayor a 1
-            ultimoProducto.cantidad--; // Decrementa la cantidad del último producto en el carrito
-        } else {
-            carrito.pop(); // Quita el ultimo producto del carrito
-        }
+// Verifica si el carrito está vacío.
+if (cart.length === 0) {
+    // Muestra un mensaje indicando que el carrito está vacío.
+    cartContainer.innerHTML = "Su carro está vacío";
+    // Establece el total en $0.
+    totalContainer.innerHTML = "$ 0";
+} else {
+    // Variable para acumular el total de la compra.
+    let total = 0;
 
-        actualizarValor(); // Actualiza y muestra la cantidad y el valor total de los productos en el carrito
-    }
+    // Genera el HTML para cada elemento del carrito y actualiza el total.
+    cartContainer.innerHTML = cart.map((item, index) => {
+        // Suma el precio del producto al total.
+        total += item.price;
+
+        return `
+            <div class='cart-item'>
+                <div class='row-img'>
+                    <img class='rowimg' src=${item.image} alt=${item.title}>
+                </div>
+                <p style='font-size:12px;'>${item.title}</p>
+                <h2 style='font-size: 15px;'>$ ${item.price}</h2>
+                <i class='fa-solid fa-trash' onclick='removeCartItem(${index})'></i>
+            </div>`;
+    }).join('');
+
+    // Muestra el total acumulado en el carrito.
+    totalContainer.innerHTML = `$ ${total}`;
 }
 
-function resetear() {
-    carrito = []; // Limpia el carrito
+// Actualiza el contador de elementos en el carrito.
+document.getElementById("count").innerHTML = cart.length;
 
-    actualizarValor(); // Actualiza y muestra la cantidad y el valor total de los productos en el carrito
-}
+// Renderiza los productos en la interfaz al cargar la página.
+document.getElementById('root').innerHTML = products.map(renderProduct).join('');
