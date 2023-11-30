@@ -39,7 +39,7 @@ function renderProduct(product) {
             <div class='bottom'>
                 <p>${product.title}</p>
                 <h2>$ ${product.price}</h2>
-                <button onclick='addToCart(${product.id})'>Add to cart</button>
+                <button onclick='addToCart(${product.id})'>Añadir a el carrito</button>
             </div>
         </div>`;
 }
